@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: carservice
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/carservice
+  uid: 240c4e56-b000-4f5f-bc99-d15ff1c09b37
+  resourceVersion: '127334'
+  creationTimestamp: '2020-12-01T19:18:24Z'
+  labels:
+    k8s-app: carservice
+spec:
+  ports:
+    - name: tcp-8090-8090-zgk5r
+      protocol: TCP
+      port: 8090
+      targetPort: 8090
+      nodePort: 32434
+  selector:
+    k8s-app: carservice
+  clusterIP: 10.106.231.35
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost

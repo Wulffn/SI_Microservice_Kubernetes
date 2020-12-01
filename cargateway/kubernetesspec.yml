@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gateway
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/gateway
+  uid: 832259ca-40c2-46de-b4b4-7c3f6d714e64
+  resourceVersion: '126665'
+  creationTimestamp: '2020-12-01T19:12:13Z'
+  labels:
+    k8s-app: gateway
+spec:
+  ports:
+    - name: tcp-8080-8080-svkcm
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 32411
+  selector:
+    k8s-app: gateway
+  clusterIP: 10.110.100.210
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost

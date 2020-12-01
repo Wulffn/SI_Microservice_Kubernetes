@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: eureka-server
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/eureka-server
+  uid: c4457eae-7b7a-43f2-883d-900ea5086bc3
+  resourceVersion: '126088'
+  creationTimestamp: '2020-12-01T19:06:50Z'
+  labels:
+    k8s-app: eureka-server
+spec:
+  ports:
+    - name: tcp-8761-8761-4796m
+      protocol: TCP
+      port: 8761
+      targetPort: 8761
+      nodePort: 31106
+  selector:
+    k8s-app: eureka-server
+  clusterIP: 10.111.37.220
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost

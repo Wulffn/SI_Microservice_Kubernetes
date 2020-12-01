@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: userservice
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/userservice
+  uid: bced32f2-4be0-44da-b80b-9e598af088e4
+  resourceVersion: '127253'
+  creationTimestamp: '2020-12-01T19:17:50Z'
+  labels:
+    k8s-app: userservice
+spec:
+  ports:
+    - name: tcp-8091-8091-z767x
+      protocol: TCP
+      port: 8091
+      targetPort: 8091
+      nodePort: 30247
+  selector:
+    k8s-app: userservice
+  clusterIP: 10.109.114.5
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost
